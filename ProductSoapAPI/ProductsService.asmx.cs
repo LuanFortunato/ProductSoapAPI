@@ -20,7 +20,6 @@ namespace ProductSoapAPI
     {
 
         [WebMethod]
-
         public string PostProduct(string name, string color, int supplier_id)
 
         {
@@ -33,6 +32,16 @@ namespace ProductSoapAPI
             product.SupplierId = supplier_id;
 
             feedback = productDAO.PostProduct(product);
+            return feedback;
+        }
+        [WebMethod]
+        public string GetAllProducts()
+
+        {
+            string feedback;
+            ProductDAO productDAO = new ProductDAO();
+
+            feedback = productDAO.GetAllProducts();
             return feedback;
         }
     }
